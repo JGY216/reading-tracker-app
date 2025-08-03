@@ -83,6 +83,7 @@ const ReadingTrackerApp = () => {
   const [showBookSearch, setShowBookSearch] = useState(false);
 
 // 실제 알라딘 API 검색 함수
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const searchBooks = useCallback(async (query) => {
     if (!query.trim()) {
       setSearchResults([]);
