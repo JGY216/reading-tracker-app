@@ -236,6 +236,7 @@ const [showBookSearch, setShowBookSearch] = useState(false);
   };
 
   // 검색어 변경 시 자동 검색 (디바운싱)
+// eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
   const timeoutId = setTimeout(() => {
     if (searchQuery && showBookSearch && searchQuery.length >= 2) {
