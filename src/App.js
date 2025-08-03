@@ -82,7 +82,7 @@ const ReadingTrackerApp = () => {
   const [isSearching, setIsSearching] = useState(false);
   const [showBookSearch, setShowBookSearch] = useState(false);
 
-  // 실제 알라딘 API 검색 함수
+ // 실제 알라딘 API 검색 함수
   const searchBooks = useCallback(async (query) => {
     if (!query.trim()) {
       setSearchResults([]);
@@ -176,7 +176,7 @@ const ReadingTrackerApp = () => {
     } finally {
       setIsSearching(false);
     }
-  }, []);
+  }, [searchBooksJSONP]);
 
   // JSONP 방식으로 알라딘 API 호출
   const searchBooksJSONP = useCallback((query) => {
