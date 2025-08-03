@@ -81,8 +81,7 @@ const [isSearching, setIsSearching] = useState(false);
 const [showBookSearch, setShowBookSearch] = useState(false);
   
 // 실제 알라딘 API 검색 함수
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  const searchBooks = useCallback(async (query) => {
+  const searchBooks = async (query) => {
     if (!query.trim()) {
       setSearchResults([]);
       return;
@@ -176,10 +175,10 @@ const [showBookSearch, setShowBookSearch] = useState(false);
     } finally {
       setIsSearching(false);
     }
-  }, []);
+  };
 
   // JSONP 방식으로 알라딘 API 호출
-  const searchBooksJSONP = useCallback((query) => {
+  const searchBooksJSONP = (query) => {
     return new Promise((resolve, reject) => {
       const aladinApiKey = 'ttbjeonggiy2229001';
       const callbackName = `aladinCallback_${Date.now()}`;
@@ -234,7 +233,7 @@ const [showBookSearch, setShowBookSearch] = useState(false);
       
       document.head.appendChild(script);
     });
-  }, []);
+  };
 
   // 검색어 변경 시 자동 검색 (디바운싱)
   useEffect(() => {
@@ -247,7 +246,7 @@ const [showBookSearch, setShowBookSearch] = useState(false);
     }, 600);
 
     return () => clearTimeout(timeoutId);
-  }, [searchQuery, showBookSearch, searchBooks]);
+  }, [searchQuery, showBookSearch]);
 
   // 타이머 관리
   useEffect(() => {
