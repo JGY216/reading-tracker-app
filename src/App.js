@@ -102,6 +102,7 @@ const ReadingTrackerApp = () => {
       
       // JSONP 방식으로 API 호출
       try {
+        // eslint-disable-next-line no-use-before-define
         const result = await searchBooksJSONP(query);
         if (result && result.length > 0) {
           setSearchResults(result);
@@ -176,7 +177,7 @@ const ReadingTrackerApp = () => {
     } finally {
       setIsSearching(false);
     }
-  }, [searchBooksJSONP]);
+  }, []);
 
   // JSONP 방식으로 알라딘 API 호출
   const searchBooksJSONP = useCallback((query) => {
