@@ -176,7 +176,7 @@ const ReadingTrackerApp = () => {
     } finally {
       setIsSearching(false);
     }
-  }, [searchBooksJSONP]);
+  }, []);
 
   // JSONP 방식으로 알라딘 API 호출
   const searchBooksJSONP = useCallback((query) => {
