@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, useCallback } from 'react';
+import React, { useState, useEffect, useRef } from 'react'; // useCallback 제거
 import { Play, Pause, Square, Plus, Search, Camera, Edit3, Clock, Timer, BookOpen, Heart, Star, Trophy } from 'lucide-react';
 
 const ReadingTrackerApp = () => {
@@ -237,16 +237,16 @@ const [showBookSearch, setShowBookSearch] = useState(false);
 
   // 검색어 변경 시 자동 검색 (디바운싱)
   useEffect(() => {
-    const timeoutId = setTimeout(() => {
-      if (searchQuery && showBookSearch && searchQuery.length >= 2) {
-        searchBooks(searchQuery);
-      } else if (searchQuery.length < 2) {
-        setSearchResults([]);
-      }
-    }, 600);
+  const timeoutId = setTimeout(() => {
+    if (searchQuery && showBookSearch && searchQuery.length >= 2) {
+      searchBooks(searchQuery);
+    } else if (searchQuery.length < 2) {
+      setSearchResults([]);
+    }
+  }, 600);
 
-    return () => clearTimeout(timeoutId);
-  }, [searchQuery, showBookSearch]);
+  return () => clearTimeout(timeoutId);
+}, [searchQuery, showBookSearch]); // searchBooks 추가
 
   // 타이머 관리
   useEffect(() => {
