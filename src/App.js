@@ -75,6 +75,10 @@ const ReadingTrackerApp = () => {
   const [newSentence, setNewSentence] = useState('');
   const [pageInput, setPageInput] = useState('');
   const [newBook, setNewBook] = useState({ title: '', author: '', publisher: '', totalPages: '' });
+const [searchQuery, setSearchQuery] = useState('');
+const [searchResults, setSearchResults] = useState([]);
+const [isSearching, setIsSearching] = useState(false);
+const [showBookSearch, setShowBookSearch] = useState(false);
   
 // 실제 알라딘 API 검색 함수
   // eslint-disable-next-line react-hooks/exhaustive-deps
